@@ -4,9 +4,10 @@ from decimal import Decimal
 
 class MenuItemSerializer(serializers.ModelSerializer):
     price_after_tax = serializers.SerializerMethodField(method_name="calculate_tax")
+    category = serializers.StringRelatedField()
     class Meta:
         model = MenuItem
-        fields = ['id','title','price','inventory','price_after_tax']
+        fields = ['id','title','price','inventory','price_after_tax','category']
         
 
 
